@@ -37,3 +37,7 @@ really true here.]
 This is implemented as a very simple standalone DNS server in Go using [miekg's
 DNS library](https://github.com/miekg/dns). Code is at
 https://github.com/dgl/wordle-dns.
+
+## Licence
+
+WTFPLv2; no warranty, see [COPYING](COPYING).

@@ -1,4 +1,5 @@
 package main
+// SPDX-License-Identifier: WTFPL
 
 import (
 	"testing"
