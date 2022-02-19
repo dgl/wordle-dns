@@ -8,6 +8,7 @@ import (
 	"os/signal"
 	"strings"
 	"syscall"
+	"time"
 
 	"github.com/miekg/dns"
 )
@@ -21,7 +22,7 @@ const (
 var (
 	flagName   = flag.String("name", "DNS name this server is accessible on", "ns.example.com")
 	flagRname  = flag.String("rname", "DNS name for administrator (email with '@' replaced with '.')", "")
-	flagListen = flag.String("listen", "DNS listen address", ":5353")
+	flagListen = flag.String("listen", "DNS listen address", ":5300")
 )
 
 // MustNewRR is a shortcut to dns.NewRR that panics on error.
@@ -50,6 +51,23 @@ var wordles = map[string]string{
 	"12": "stout",
 	"13": "candy",
 	"14": "larva",
+	"15": "maple",
+	"16": "ladle",
+	"17": "bacon",
+	"18": "snake",
+	"19": "chart",
+	"20": "oasis",
+	"21": "space",
+	"22": "basic",
+	"23": "slope",
+	"24": "great",
+	"25": "first",
+	"26": "rhino",
+	"27": "screw",
+	"28": "force",
+	"29": "water",
+	"30": "hyper",
+	"31": "cakes",
 
 	"example": "names",
 }
@@ -62,8 +80,7 @@ func dnsServe() {
 
 		rname := strings.Split(r.Question[0].Name, ".")
 		name := strings.TrimSuffix(r.Question[0].Name, ".")
-		// TODO
-		day := "1"
+		day := fmt.Sprintf("%d", 1+((12 + time.Now().UTC().Day()) % 31))
 
 		if len(rname) == 4 && strings.ToLower(name) == "wd.ip.wtf" && r.Question[0].Qtype == dns.TypeNS {
 			m.Answer = []dns.RR{MustNewRR(NS)}
