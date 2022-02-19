@@ -94,7 +94,7 @@ func dnsServe() {
 			txt2 := rr2.(*dns.TXT)
 			txt2.Txt = []string{
 				`This shell function makes it easier to play`,
-				`wd() { dig +short txt $1.` + day + `.wd.ip.wtf | perl -pe's/\\([0-9]{1,3})/chr$1/eg' }`}
+				`wd() { dig +short txt $1.` + day + `.wd.ip.wtf | perl -pe's/\\([0-9]{1,3})/chr$1/eg'; }`}
 			m.Answer = []dns.RR{rr, rr2}
 		} else if len(rname[0]) == 5 && len(rname) <= 5 {
 			rr := MustNewRR(name + " CNAME " + rname[0] + "." + day + ".wd.ip.wtf.")
