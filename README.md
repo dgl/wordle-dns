@@ -32,6 +32,9 @@ I prepared earlier so I'm not revealing an actual answer!
 of the best openers, but this is using its own list of words, so that's not
 really true here.]
 
+If you don't have easy access to DNS, you can use the shell at http://ip.wtf/sh
+to make DNS queries using the `host` command.
+
 ## Implementation
 
 This is implemented as a very simple standalone DNS server in Go using [miekg's
