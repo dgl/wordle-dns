@@ -21,9 +21,7 @@ const (
 )
 
 var (
-	flagName   = flag.String("name", "DNS name this server is accessible on", "ns.example.com")
-	flagRname  = flag.String("rname", "DNS name for administrator (email with '@' replaced with '.')", "")
-	flagListen = flag.String("listen", "DNS listen address", ":5300")
+	flagListen = flag.String("listen", ":5300", "DNS listen address ([host]:port)")
 )
 
 // MustNewRR is a shortcut to dns.NewRR that panics on error.
